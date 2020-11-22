@@ -1,5 +1,5 @@
 const { delay, interval, resize } = config || { delay: 10, interval: 5, resize: false };
-const modal = document.getElementById('myModal');
+const modal = document.getElementById("myModal");
 const modalImg = document.getElementById("img01");
 const imagesUrls = [
   "https://images.pexels.com/photos/1275929/pexels-photo-1275929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=9060",
@@ -13,10 +13,10 @@ const imagesUrls = [
 let timeout = delay;
 
 function checkActivity() {
-  timeout--
-  if (timeout <= 0){
-    const img = new Image(); //add image instance to get natural height and width of image
-    const i = Math.floor(Math.random() * Math.floor(imagesUrls.length)); //calculate index of random image from list 
+  timeout--;
+  if (timeout <= 0) {
+    const img = new Image(); // add image instance to get natural height and width of image
+    const i = Math.floor(Math.random() * Math.floor(imagesUrls.length)); // calculate index of random image from list 
     modalImg.zoomIn();
     modalImg.src = imagesUrls[i];
     modal.style.display = "block";
@@ -48,19 +48,19 @@ function checkActivity() {
 
 function addZoom() {
   modalImg.zoomOut();
-  setTimeout(clearZoom,900);
+  setTimeout(clearZoom, 900);
 }
 
 function clearZoom() {
   modal.style.display = "none";
   modalImg.zoomOutRemove();
-  checkActivity()
+  checkActivity();
 } 
 
 function userActivity() {
   timeout = delay;
   modalImg.zoomOut();
-  setTimeout(modalImg.zoomOutRemove,1999);
+  setTimeout(modalImg.zoomOutRemove, 1999);
   modal.style.display = "none";
 }
 
